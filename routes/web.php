@@ -25,3 +25,15 @@ Route::get('/contact' ,[
 
 Route::group(['middleware' => 'auth'], function () {
 });
+
+Route::resource('bill', 'AdminBillController');
+
+Route::get('/danh-sach-don-hang', [
+	'as'=>'danh-sach-don-hang',
+	'uses'=>'Admin\AdminBillController@index'
+]);
+
+Route::get('/chi-tiet-don-hang', [
+	'as'=>'chi-tiet-don-hang',
+	'uses'=>'Admin\AdminBillController@edit'
+]);
