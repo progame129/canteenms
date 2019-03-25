@@ -11,17 +11,17 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-
-Route::get('/' ,[
-'as' =>'home-page',
-'uses' => 'FontendController@showHome'
-]);
-
-Route::get('/contact' ,[
-'as' =>'contact-page',
-'uses' => 'FontendController@showContacts'
-]);
 
 Route::group(['middleware' => 'auth'], function () {
+
 });
+Route::get('/test/quan-ly-danh-muc-san-pham', [
+    'as'=>'manage_product_catalog',
+    'uses'=>'FrontendController@showProducts'
+]);
+// Route::resource('category', 'AdminCategoryController');
+
