@@ -27,18 +27,10 @@
         <div class="menu_block">
           <nav>
             <ul class="sf-menu">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about-us.html">About Us</a>
-                <ul>
-                  <li><a href="#"> cuisine</a></li>
-                  <li><a href="#">Good rest</a></li>
-                  <li><a href="#">Services</a></li>
-                </ul>
+              <li><a href="{{ route('home-page') }}">Home</a></li>
+              <li><a href="about-us.html">Menu</a>
               </li>
-              <li><a href="menu.html">Menu</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="news.html">News</a></li>
-              <li class="current"><a href="contacts.html">Contacts</a></li>
+              <li class="current"><a href="{{ route('contact-page') }}">Contacts</a></li>
             </ul>
           </nav>
           <div class="clear"></div>
@@ -53,7 +45,7 @@
         <h2>Find Us</h2>
         <div class="map">
           <figure class="img_inner">
-            <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.095307416725!2d105.77955771493261!3d21.028872185998377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3260b1a8b%3A0x862052392e3f478e!2zOCBUw7RuIFRo4bqldCBUaHV54bq_dCwgTeG7uSDEkMOsbmgsIFThu6sgTGnDqm0sIEjDoCBO4buZaSAxMDAwMA!5e0!3m2!1svi!2s!4v1537501658867"></iframe>
           </figure>
           <address>
           <dl>

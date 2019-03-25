@@ -71,17 +71,9 @@ $(window).load(function () {
         <div class="menu_block">
           <nav>
             <ul class="sf-menu">
-              <li class="current"><a href="index.html">Home</a></li>
-              <li class="with_ul"><a href="about-us.html">About Us</a>
-                <ul>
-                  <li><a href="#"> cuisine</a></li>
-                  <li><a href="#">Good rest</a></li>
-                  <li><a href="#">Services</a></li>
-                </ul>
+              <li class="current"><a href="{{ route('home-page') }}">Home</a></li>
+              <li class="with_ul"><a href="about-us.html">Menu</a>
               </li>
-              <li><a href="menu.html">Menu</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="news.html">News</a></li>
               <li><a href="{{ route('contact-page') }}">Contacts</a></li>
             </ul>
           </nav>
