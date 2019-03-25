@@ -27,9 +27,10 @@
         <div class="menu_block">
           <nav>
             <ul class="sf-menu">
-              <li><a href="{{ route('home-page') }}">Home</a></li>
-              <li><a href="about-us.html">Menu</a>
-              </li>
+             <li class="with_ul"><a href="{{ route('home-page') }}">Home</a></li>
+              <li class="with_ul"><a href="{{ route('about-page') }}">About Us</a>
+              <li class="with_ul"><a href="{{ route('menu-page') }}">Menu</a></li>
+              <li><a href="{{ route('new-page') }}">News</a></li>
               <li class="current"><a href="{{ route('contact-page') }}">Contacts</a></li>
             </ul>
           </nav>

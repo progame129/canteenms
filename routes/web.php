@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -25,6 +25,26 @@ Route::get('/test/quan-ly-danh-muc-san-pham', [
 ]);
 Route::resource('category', 'AdminCategoryController');
 
+Route::get('/about' ,[
+'as' =>'about-page',
+'uses' => 'FontendController@showAbout'
+]);
+Route::get('/' ,[
+'as' =>'home-page',
+'uses' => 'FontendController@showHome'
+]);
+Route::get('/menu' ,[
+'as' =>'menu-page',
+'uses' => 'FontendController@showMenu'
+]);
+Route::get('/new' ,[
+'as' =>'new-page',
+'uses' => 'FontendController@showNew'
+]);
+Route::get('/contact' ,[
+'as' =>'contact-page',
+'uses' => 'FontendController@showContacts'
+]);
 
 Route::group(['middleware' => 'auth'], function () {
 });

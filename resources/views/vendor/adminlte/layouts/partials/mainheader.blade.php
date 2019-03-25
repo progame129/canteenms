@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="{{ url('/home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Canteen MS</b> </span>
+        <span class="logo-lg"><b>CanteenMS</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -22,7 +22,6 @@
                 
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        
                     <ul class="dropdown-menu">
                         <li class="header">{{ trans('adminlte_lang::message.tabmessages') }}</li>
                         <li>
@@ -53,7 +52,6 @@
               
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                     
                     <ul class="dropdown-menu">
                         <li class="header">{{ trans('adminlte_lang::message.notifications') }}</li>
                         <li>
@@ -73,7 +71,6 @@
                 
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                     
                     <ul class="dropdown-menu">
                         <li class="header">{{ trans('adminlte_lang::message.tasks') }}</li>
                         <li>
@@ -121,11 +118,10 @@
                                 <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
                                 <p>
                                     {{ Auth::user()->name }}
-                                    <small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>
+                                    <small>{{ trans('adminlte_lang::message.login') }} Apil. 2019</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
