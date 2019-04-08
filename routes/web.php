@@ -56,7 +56,59 @@ Route::get('/danh-sach-don-hang', [
 	'uses'=>'Admin\AdminBillController@index'
 ]);
 
-Route::get('/chi-tiet-don-hang', [
-	'as'=>'chi-tiet-don-hang',
-	'uses'=>'Admin\AdminBillController@edit'
+Route::get('/danh-sach-san-pham', [
+	'as'=>'danh-sach-san-pham',
+	'uses'=>'Admin\AdminBillController@listProduct'
+]);
+
+Route::get('/delete-product', [
+    'as'=>'delete-product',
+    'uses'=>'Admin\ProductController@deleteProduct'
+]);
+
+Route::get('/edit-product/{id}', [
+    'as'=>'edit-product',
+    'uses'=>'handleController@edit'
+]);
+Route::post('/edit-product/{id}', [
+    'as'=>'edit-product',
+    'uses'=>'handleController@update'
+]);
+
+//Route::get('/edit-product/{id}',  'handleController@edit')->name('edit-product');
+
+
+Route::get('/danh-muc-san-pham', [
+    'as'=>'danh-muc-san-pham',
+    'uses'=>'Admin\AdminBillController@listCategory'
+]);
+
+Route::get('/product_get' ,[
+'as' =>'product_get',
+'uses' => 'FontendController@showProduct_add'
+]);
+
+
+Route::get('/category_get' ,[
+'as' =>'category_get',
+'uses' => 'FontendController@showCategory_add'
+]);
+
+ Route::post('/category_add' ,[
+   'as' =>'category_add',
+     'uses' => 'handleController@handleRequestCategory'
+ ]);
+
+ Route::post('/product_add' ,[
+     'as' =>'product_add',
+    'uses' => 'handleController@handleRequestProduct']);
+
+Route::get('/delete-category', [
+    'as'=>'delete-category',
+    'uses'=>'Admin\CategoryController@deleteCategory'
+]);
+
+Route::get('/edit-category', [
+    'as'=>'edit-category',
+    'uses'=>'Admin\CategoryController@editCategory'
 ]);

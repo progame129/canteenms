@@ -31,6 +31,7 @@
                         <th>Email</th>
                         <th>Trạng thái</th>
                         <th class="sorting col-md-1" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Action</th>
+                        <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Sửa</th></tr>
                         <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Xóa</th></tr>
                     </thead>
                     <tbody>
