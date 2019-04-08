@@ -27,6 +27,34 @@ class AdminBillController extends Controller
         $data['customers'] = $customers;
         return view('adminlte::layouts.danh-sach-don-hang', $data);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listProduct()
+    {
+        $data = [];
+        $data['title'] = 'Quản lý sản phẩm';
+        $products = DB::table('product')
+            ->join('category','product.id_category','=','category.id')
+            ->select('product.*','category.name as category_name')
+            ->orderBy('id', 'desc')
+            ->get();
+        $data['products'] = $products;
+        return view('adminlte::layouts.danh-sach-san-pham', $data);
+    }
+
+    public function listCategory()
+    {
+        $data = [];
+        $data['title'] = 'Quản lý danh mục';
+        $categories = DB::table('category')
+            ->orderBy('id', 'desc')
+            ->get();
+        $data['categories'] = $categories;
+        return view('adminlte::layouts.danh-muc-san-pham', $data);
+    }
 
     /**
      * Show the form for editing the specified resource.

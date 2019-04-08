@@ -35,9 +35,9 @@
        
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('Danh mục sản phẩm') }}</span><i class="fa fa-angle-left pull-right"></i></a></li>
+            <li><a href="{{ url('danh-muc-san-pham') }}"><i class='fa fa-link'></i> <span>{{ trans('Danh mục sản phẩm') }}</span><i class="fa fa-angle-left pull-right"></i></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Quản lý sản phẩm') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="{{ url('danh-sach-san-pham') }}"><i class='fa fa-link'></i> <span>{{ trans('Quản lý sản phẩm') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
             </li>
             <li>
                 <a href="{{ url('danh-sach-don-hang') }}"><i class="fas fa-file-invoice-dollar"></i> <span>{{ trans('Quản lí đơn hàng') }}</span></a>
