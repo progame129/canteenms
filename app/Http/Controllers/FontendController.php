@@ -67,4 +67,7 @@ class FontendController extends Controller
 
         return view('product_add');
     }
+    public function showBunbo(Request $request){
+        return view('bunbo');
+    }
 }

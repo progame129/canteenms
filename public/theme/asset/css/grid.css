@@ -23,6 +23,7 @@ body {
 .container_12 {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: auto;
   width: 960px;
 }
 
@@ -71,7 +72,9 @@ body {
 .omega {
   margin-right: 0;
 }
-
+.beta{
+  margin-left: 10;
+}
 /* `Grid >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
 
