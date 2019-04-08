@@ -12,7 +12,7 @@
 */
 
 Route::get('/welcome', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 
@@ -20,30 +20,30 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 Route::get('/test/quan-ly-danh-muc-san-pham', [
-    'as'=>'manage_product_catalog',
-    'uses'=>'FrontendController@showProducts'
+	'as'=>'manage_product_catalog',
+	'uses'=>'FrontendController@showProducts'
 ]);
 Route::resource('category', 'AdminCategoryController');
 
 Route::get('/about' ,[
-'as' =>'about-page',
-'uses' => 'FontendController@showAbout'
+	'as' =>'about-page',
+	'uses' => 'FontendController@showAbout'
 ]);
 Route::get('/' ,[
-'as' =>'home-page',
-'uses' => 'FontendController@showHome'
+	'as' =>'home-page',
+	'uses' => 'FontendController@showHome'
 ]);
 Route::get('/menu' ,[
-'as' =>'menu-page',
-'uses' => 'FontendController@showMenu'
+	'as' =>'menu-page',
+	'uses' => 'FontendController@showMenu'
 ]);
 Route::get('/new' ,[
-'as' =>'new-page',
-'uses' => 'FontendController@showNew'
+	'as' =>'new-page',
+	'uses' => 'FontendController@showNew'
 ]);
 Route::get('/contact' ,[
-'as' =>'contact-page',
-'uses' => 'FontendController@showContacts'
+	'as' =>'contact-page',
+	'uses' => 'FontendController@showContacts'
 ]);
 
 Route::group(['middleware' => 'auth'], function () {
@@ -56,7 +56,17 @@ Route::get('/danh-sach-don-hang', [
 	'uses'=>'Admin\AdminBillController@index'
 ]);
 
-Route::get('/chi-tiet-don-hang', [
+Route::get('/chi-tiet-don-hang/{id}', [
 	'as'=>'chi-tiet-don-hang',
 	'uses'=>'Admin\AdminBillController@edit'
+]);
+
+Route::put('/danh-sach-don-hang/{id}', [
+	'as'=>'danh-sach-don-hang',
+	'uses'=>'Admin\AdminBillController@update'
+]);
+
+Route::delete('/danh-sach-don-hang/{id}', [
+	'as'=>'danh-sach-don-hang',
+	'uses'=>'Admin\AdminBillController@destroy'
 ]);
