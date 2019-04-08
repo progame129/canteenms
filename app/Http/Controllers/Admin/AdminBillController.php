@@ -20,8 +20,10 @@ class AdminBillController extends Controller
         $data = [];
         $data['title'] = 'Quản lý đơn hàng';
         $customers = DB::table('customer')
-                    ->orderBy('id', 'desc')
-                    ->get();
+        ->orderBy('id', 'asc')
+        ->join('bills', 'customer.id', '=', 'bills.customer_id')
+        ->select('customer.*', 'bills.id as bill_id', 'bills.status as bill_status')
+        ->get();
         $data['customers'] = $customers;
         return view('adminlte::layouts.danh-sach-don-hang', $data);
     }
@@ -36,18 +38,18 @@ class AdminBillController extends Controller
     {
 
         $customerInfo = DB::table('customer')
-                        ->join('bills', 'customers.id', '=', 'bills.customer_id')
-                        ->select('customers.*', 'bills.id as bill_id', 'bills.total as bill_total', 'bills.note as bill_note', 'bills.status as bill_status')
-                        ->where('customers.id', '=', $id)
-                        ->first();
+        ->join('bills', 'customer.id', '=', 'bills.customer_id')
+        ->select('customer.*', 'bills.id as bill_id', 'bills.total as bill_total')
+        ->where('customer.id', '=', $id)
+        ->first();
 
         $billInfo = DB::table('bills')
-                    ->join('bill_details', 'bills.id', '=', 'bill_details.bill_id')
-                    ->leftjoin('products', 'bill_details.product_id', '=', 'products.id')
-                    ->where('bills.customer_id', '=', $id)
-                    ->select('bills.*', 'bill_details.*', 'products.name as product_name')
-                    ->get();
-                    
+        ->join('bill_details', 'bills.id', '=', 'bill_details.bill_id')
+        ->leftjoin('product', 'bill_details.product_id', '=', 'product.id')
+        ->where('bills.customer_id', '=', $id)
+        ->select('bills.*', 'bill_details.*', 'product.name as product_name')
+        ->get();
+
         $data['customerInfo'] = $customerInfo;
         $data['billInfo'] = $billInfo;
 
@@ -68,7 +70,7 @@ class AdminBillController extends Controller
         $bill->save();
         Session::flash('message', "Successfully updated");
 
-        return Redirect::to('admincp/bill');
+        return Redirect::to('danh-sach-don-hang');
     }
 
     /**
@@ -83,6 +85,6 @@ class AdminBillController extends Controller
         $bill->delete();
         Session::flash('message', "Successfully deleted");
 
-        return Redirect::to('admincp/bill');
+        return Redirect::to('danh-sach-don-hang');
     }
 }

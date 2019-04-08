@@ -40,7 +40,7 @@
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Quản lý sản phẩm') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
             </li>
             <li>
-                <a href="{{ url('danh-sach-don-hang') }}"><i class='fa fa-link'></i> <span>{{ trans('Quản lí đơn hàng') }}</span></a>
+                <a href="{{ url('danh-sach-don-hang') }}"><i class="fas fa-file-invoice-dollar"></i> <span>{{ trans('Quản lí đơn hàng') }}</span></a>
             </li>
             <li>
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Quản lý phản hồi') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
