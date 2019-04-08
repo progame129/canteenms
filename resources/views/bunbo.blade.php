@@ -50,24 +50,7 @@
           <div class="grid_3 alpha"> <img src="{{asset('theme/asset/images/Bun bo.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
             <h3><a href="#">Bún Bò huế</a></h3>
           </div>
-          <div class="grid_3 omega"> <img src="{{asset('theme/asset/images/Com ga quay.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
-            <h3><a href="#">Cơm gà quay</a></h3>
-          </div>
-          <div class="grid_3 alpha"> <img src="{{asset('theme/asset/images/Com suon.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
-            <h3><a href="#">Cơm sườn nướng</a></h3>
-          </div>
-          <div class="grid_3 omega"> <img src="{{asset('theme/asset/images/Bo huc.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
-            <h3><a href="#">Red Bull</a></h3>
-          </div>
-          <div class="grid_3 alpha"> <img src="{{asset('theme/asset/images/Coca.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
-            <h3 class="mb0"><a href="#">Coca cola</a></h3>
-          </div>
-          <div class="grid_3 omega"> <img src="{{asset('theme/asset/images/Nuoc cam twister.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
-            <h3 class="mb0"><a href="#">Nước cam twister</a></h3>
-          </div>
-            <div class="grid_3 omega"> <img src="{{asset('theme/asset/images/Nuoc cam twister.jpg')}}" style="width:209px;height:152px;" alt="" class="img_inner">
-            <h3 class="mb0"><a href="#">Nước cam twister</a></h3>
-          </div>
+          
         </div>
         <div class="clear"></div>
       </div>

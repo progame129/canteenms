@@ -46,6 +46,11 @@ Route::get('/contact' ,[
 'uses' => 'FontendController@showContacts'
 ]);
 
+Route::get('/bunbo' ,[
+'as' =>'bunbo-page',
+'uses' => 'FontendController@showbunbo'
+]);
+
 Route::group(['middleware' => 'auth'], function () {
 });
 

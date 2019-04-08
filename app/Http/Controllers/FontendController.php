@@ -21,4 +21,7 @@ class FontendController extends Controller
     public function showNew(Request $request){
     	return view('new');
     }
+    public function showBunbo(Request $request){
+        return view('bunbo');
+    }
 }
