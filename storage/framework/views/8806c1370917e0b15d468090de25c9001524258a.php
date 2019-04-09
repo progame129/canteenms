@@ -1,8 +1,7 @@
-@extends('adminlte::layouts.app')
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Quản lí đơn hàng
-@endsection
-@section('main-content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main-content'); ?>
 <section class="content-header">
     <h1>
         Danh sách đơn hàng
@@ -15,9 +14,9 @@ Quản lí đơn hàng
 </section>
 <!-- Main content -->
 <section class="content">
-    @if (Session::has('message'))
-    <div class="alert alert-info"> {{ Session::get('message') }}</div>
-    @endif
+    <?php if(Session::has('message')): ?>
+    <div class="alert alert-info"> <?php echo e(Session::get('message')); ?></div>
+    <?php endif; ?>
 
     <!-- Default box -->
     <div class="box">
@@ -38,41 +37,42 @@ Quản lí đơn hàng
                             <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Xóa</th></tr>
                         </thead>
                         <tbody>
-                            @foreach($customers as $customer)
+                            <?php $__currentLoopData = $customers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td>{{ $customer->id }}</td>
-                                <td>{{ $customer->name }}</td>
-                                <td>{{ $customer->address }}</td>
-                                <td>{{ $customer->created_at }}</td>
-                                <td>{{ $customer->email }}</td>
-                                <td>@switch($customer->bill_status)
-                                    @case(1)
+                                <td><?php echo e($customer->id); ?></td>
+                                <td><?php echo e($customer->name); ?></td>
+                                <td><?php echo e($customer->address); ?></td>
+                                <td><?php echo e($customer->created_at); ?></td>
+                                <td><?php echo e($customer->email); ?></td>
+                                <td><?php switch($customer->bill_status):
+                                    case (1): ?>
                                     Chưa giao
-                                    @break
+                                    <?php break; ?>
 
-                                    @case(2)
+                                    <?php case (2): ?>
                                     Đang giao
-                                    @break
+                                    <?php break; ?>
 
-                                    @case(3)
+                                    <?php case (3): ?>
                                     Đã Giao
-                                    @break
+                                    <?php break; ?>
 
-                                    @default
+                                    <?php default: ?>
                                     Chưa xử lý
-                                    @endswitch
+                                    <?php endswitch; ?>
                                 </td>
-                                <td><a href="{{ url('chi-tiet-don-hang')}}/{{ $customer->id }}">Detail</a></td>
+                                <td><a href="<?php echo e(url('chi-tiet-don-hang')); ?>/<?php echo e($customer->id); ?>">Detail</a></td>
                                 <td>
-                                    <form action="{{ url('danh-sach-don-hang')}}/{{ $customer->id }}" method="post" id="formDelete">
+                                    <form action="<?php echo e(url('danh-sach-don-hang')); ?>/<?php echo e($customer->id); ?>" method="post" id="formDelete">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="submit" value="Delete" class="btn btn-danger">
-                                        {{ csrf_field() }}
+                                        <?php echo e(csrf_field()); ?>
+
                                     </form>
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
             </div>
@@ -80,5 +80,8 @@ Quản lí đơn hàng
     </div>
 </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('adminlte::layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /* C:\xampp\htdocs\canteenms\resources\views/vendor/adminlte/layouts/danh-sach-don-hang.blade.php */ ?>

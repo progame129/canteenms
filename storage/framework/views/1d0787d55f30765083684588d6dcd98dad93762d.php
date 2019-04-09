@@ -1,11 +1,9 @@
-@extends('adminlte::layouts.app')
-
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 <section class="content-header">
     <h1>
         Danh sách danh mục
     </h1>
-    <form action="{{ route('category_get') }}" method="get" id="formAddProduct">
+    <form action="<?php echo e(route('category_get')); ?>" method="get" id="formAddProduct">
         <input type="submit" value="Thêm danh mục" class="btn btn-default">
     </form>
 
@@ -17,9 +15,9 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    @if (Session::has('message'))
-    <div class="alert alert-info"> {{ Session::get('message') }}</div>
-    @endif
+    <?php if(Session::has('message')): ?>
+    <div class="alert alert-info"> <?php echo e(Session::get('message')); ?></div>
+    <?php endif; ?>
     <!-- Default box -->
     <div class="box">
         <div class="box-header with-border">
@@ -33,19 +31,19 @@
                                 <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="2" aria-label="">Action</th></tr>
                             </thead>
                             <tbody>
-                                @foreach($categories as $category)
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->name }}</td>
+                                    <td><?php echo e($category->id); ?></td>
+                                    <td><?php echo e($category->name); ?></td>
                                     <td >
-                                        <a href="{{ route('category_get') }}?id={{ $category->id }}"><button class="btn btmn-danger" type="button">Sửa</button></a>
+                                        <a href="<?php echo e(route('category_get')); ?>?id=<?php echo e($category->id); ?>"><button class="btn btmn-danger" type="button">Sửa</button></a>
                                     </td>
                                     <td>
-                                       <a href="{{ route('delete-category') }}?id={{ $category->id }}"><button class="btn btmn-warning" type="button">Delete</button></a>
+                                       <a href="<?php echo e(route('delete-category')); ?>?id=<?php echo e($category->id); ?>"><button class="btn btmn-warning" type="button">Delete</button></a>
                                    </form>
                                </td>
                            </tr>
-                           @endforeach
+                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                        </tbody>
                    </table>
                </div>
@@ -53,5 +51,8 @@
        </div>
    </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('adminlte::layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /* C:\xampp\htdocs\canteenms\resources\views/vendor/adminlte/layouts/danh-muc-san-pham.blade.php */ ?>

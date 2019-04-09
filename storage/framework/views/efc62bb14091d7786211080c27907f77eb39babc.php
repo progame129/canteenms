@@ -1,8 +1,7 @@
-@extends('adminlte::layouts.app')
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Đơn hàng chi tiết
-@endsection
-@section('main-content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main-content'); ?>
 <section class="content-header">
     <h1>
         Chi tiết đơn hàng
@@ -32,23 +31,23 @@
                             <tbody>
                                 <tr>
                                     <td>Thông tin người đặt hàng</td>
-                                    <td>{{ $customerInfo->name }}</td>
+                                    <td><?php echo e($customerInfo->name); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Ngày đặt hàng</td>
-                                    <td>{{ $customerInfo->created_at }}</td>
+                                    <td><?php echo e($customerInfo->created_at); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Số điện thoại</td>
-                                    <td>{{ $customerInfo->phone_number }}</td>
+                                    <td><?php echo e($customerInfo->phone_number); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Địa chỉ</td>
-                                    <td>{{ $customerInfo->address }}</td>
+                                    <td><?php echo e($customerInfo->address); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>{{ $customerInfo->email }}</td>
+                                    <td><?php echo e($customerInfo->email); ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -62,26 +61,27 @@
                                 <th class="sorting col-md-2">Giá tiền</th>
                             </thead>
                             <tbody>
-                                @foreach($billInfo as $key => $bill)
+                                <?php $__currentLoopData = $billInfo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $bill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $bill->product_name }}</td>
-                                    <td>{{ $bill->quantity }}</td>
-                                    <td>{{ number_format($bill->price) }} VNĐ</td>
+                                    <td><?php echo e($key+1); ?></td>
+                                    <td><?php echo e($bill->product_name); ?></td>
+                                    <td><?php echo e($bill->quantity); ?></td>
+                                    <td><?php echo e(number_format($bill->price)); ?> VNĐ</td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td colspan="3"><b>Tổng tiền</b></td>
-                                    <td colspan="1"><b class="text-red">{{ number_format($customerInfo->bill_total) }} VNĐ</b></td>
+                                    <td colspan="1"><b class="text-red"><?php echo e(number_format($customerInfo->bill_total)); ?> VNĐ</b></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <form action="{{ url('danh-sach-don-hang') }}/{{ $customerInfo->bill_id }}" method="POST">
+                    <form action="<?php echo e(url('danh-sach-don-hang')); ?>/<?php echo e($customerInfo->bill_id); ?>" method="POST">
                         <input type="hidden" name="_method" value="PUT">
-                        {{ csrf_field() }}
+                        <?php echo e(csrf_field()); ?>
+
                         <div class="col-md-8"></div>
                         <div class="col-md-4">
                             <div class="form-inline">
@@ -100,4 +100,7 @@
             </div>
         </div>
     </section>
-    @endsection
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('adminlte::layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /* C:\xampp\htdocs\canteenms\resources\views/vendor/adminlte/layouts/chi-tiet-don-hang.blade.php */ ?>
