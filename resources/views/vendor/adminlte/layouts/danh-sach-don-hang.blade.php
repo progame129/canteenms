@@ -19,13 +19,34 @@ Quản lí đơn hàng
     <div class="alert alert-info"> {{ Session::get('message') }}</div>
     @endif
 
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <div class="row">
+            <div class="col-md-12">
+                <table id="myTable" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                   <thead>
+                    <tr role="row">
+                        <th class="sorting col-md-1" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="" >ID</th>
+                        <th class="sorting_asc col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="">Tên người order</th>
+                        <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Địa chỉ</th>
+                        <th class="sorting col-md-1" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Ngày đặt hàng</th>
+                        <th>Email</th>
+                        <th>Trạng thái</th>
+                        <th class="sorting col-md-1" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Action</th>
+                        <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Sửa</th></tr>
+                        <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Xóa</th></tr>
+                    </thead>
+                    <tbody>
+                        @foreach($customers as $customer)
+
     <!-- Default box -->
     <div class="box">
         <div class="box-header with-border">
             <div class="row">
                 <div class="col-md-12">
                     <table id="myTable" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                       <thead>
+                     <thead>
                         <tr role="row">
                             <th class="sorting col-md-1" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="" >ID</th>
                             <th class="sorting_asc col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="">Tên người order</th>
@@ -34,11 +55,11 @@ Quản lí đơn hàng
                             <th>Email</th>
                             <th>Trạng thái</th>
                             <th class="sorting col-md-1" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Action</th>
-                            <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Sửa</th></tr>
                             <th class="sorting col-md-2" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Xóa</th></tr>
                         </thead>
                         <tbody>
                             @foreach($customers as $customer)
+
                             <tr>
                                 <td>{{ $customer->id }}</td>
                                 <td>{{ $customer->name }}</td>
@@ -69,16 +90,15 @@ Quản lí đơn hàng
                                         <input type="submit" value="Delete" class="btn btn-danger">
                                         {{ csrf_field() }}
                                     </form>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 @endsection
 

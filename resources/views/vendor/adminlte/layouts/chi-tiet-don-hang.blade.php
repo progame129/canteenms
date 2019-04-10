@@ -40,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td>Số điện thoại</td>
-                                    <td>{{ $customerInfo->phone_number }}</td>
+                                    <td>{{ $customerInfo->phonenumber }}</td>
                                 </tr>
                                 <tr>
                                     <td>Địa chỉ</td>
